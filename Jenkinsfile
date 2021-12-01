@@ -14,7 +14,7 @@ stages {
 	stage('Git Clone'){
         steps {	
             script {
-		        sh 'git clone git@github.com:bornprasadgorre/stockmann.git'
+		        sh 'git clone https://github.com/bornprasadgorre/stockmann.git'
             }
 		}
 	 }
