@@ -1,5 +1,4 @@
 pipeline {
-	agent any
 stages {
     stage('Git Preparation'){
     steps {
@@ -14,7 +13,7 @@ stages {
 	stage('Git Clone'){
         steps {	
             script {
-		        sh 'git clone https://github.com/bornprasadgorre/stockmann.git'
+		        sh 'git clone git@github.com:bornprasadgorre/stockmann.git'
             }
 		}
 	 }
@@ -30,7 +29,8 @@ stages {
 	stage('Git committerdate list'){
         steps {	
             script{
-                sh "git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(refname:short) - %(objectname:short) - %(contents:subject) - %(authorname) (%(committerdate))'"
+                sh "git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(refname:short) - %(objectname:short) - %(contents:subject) - %(authorname) %(committerdate)'"
+            }
 		}
 	 }
     }
